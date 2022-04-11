@@ -1,3 +1,4 @@
+import axios from "axios";
 import {useState} from "react";
 
 const NewPost = () => {
@@ -11,6 +12,14 @@ const NewPost = () => {
       title,
       body
     })
+    const data = {
+      "id": id,
+      "title": title,
+      "body": body
+    }
+    axios.post("http://localhost:3002/post", data)
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error))
   }
 
   return <div>
